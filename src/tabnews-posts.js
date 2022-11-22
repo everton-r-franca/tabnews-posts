@@ -20,6 +20,7 @@ class Posts {
       userOptions
     );
     const posts = await fetchAllPosts(this._username, options);
+    if (!posts) throw Error("Erro ao solicitar suas postagens.");
     return posts.filter((post) => {
       return !exceptSlugs.includes(post.slug);
     });

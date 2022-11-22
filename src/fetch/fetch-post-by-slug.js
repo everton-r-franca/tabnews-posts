@@ -17,6 +17,14 @@ export default function fetchPostBySlug(username, slug) {
     .catch(throwApplicationError);
 }
 
+function parseResponse(response) {
+  if (!response.data || response.status !== 200) {
+    throw new Error("Erro ao solicitar suas postagens.");
+  }
+
+  return response.data;
+}
+
 async function fetchComments(response) {
   const url = `https://www.tabnews.com.br/api/v1/contents/${response.owner_username}/${response.slug}/children`;
   console.log(url);
@@ -31,13 +39,6 @@ async function fetchComments(response) {
   const comments = await axios(options);
   if (comments) response.comments = comments.data;
   return response;
-}
-
-function parseResponse(response) {
-  if (!response.data && response.status !== 200) {
-    throw new Error("Erro ao solicitar suas postagens.");
-  }
-  return response.data;
 }
 
 function extractPostsFromResponse(response) {

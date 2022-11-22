@@ -19,18 +19,18 @@ export default function fetchAllPosts(username, queryString) {
 }
 
 function parseResponse(response) {
-  if (response && response.status !== 200) {
-    throw new Error("Erro ao solicitar suas postagens.");
+  if (response.status !== 200) {
+    throw new Error(`Erro ao solicitar suas postagens.`);
   }
-
   return response.data.filter((post) => {
     return post.title !== null && post.status === "published";
   });
-  //   return response.json();
 }
 
 function extractPostsFromResponse(response) {
   return response;
 }
 
-function throwApplicationError(error) {}
+function throwApplicationError(error) {
+  console.log(error);
+}
