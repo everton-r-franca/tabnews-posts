@@ -27,7 +27,6 @@ function parseResponse(response) {
 
 async function fetchComments(response) {
   const url = `https://www.tabnews.com.br/api/v1/contents/${response.owner_username}/${response.slug}/children`;
-  console.log(url);
   const options = {
     method: "get",
     url: url,

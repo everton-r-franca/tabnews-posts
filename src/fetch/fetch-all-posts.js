@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default function fetchAllPosts(username, queryString) {
-  const url = `https://www.tabnews.com.br/api/v1/contents/${username}?page=${queryString.page}&per_page=${queryString.per_page}&strategy=${queryString.strategy}`;
-
+  // const url = `https://www.tabnews.com.br/api/v1/contents/${username}?page=${queryString.page}&per_page=${queryString.per_page}&strategy=${queryString.strategy}`;
+  const url = `https://www.tabnews.com.br/api/v1/contents/${username}`;
   const options = {
     method: "get",
     url: url,
