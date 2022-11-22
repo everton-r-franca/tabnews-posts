@@ -8,16 +8,18 @@ Get your posts with nodejs and use it in your personal blog.
 
 Fetch relevant posts of user.
 
-```myPosts.fetchAll().then(
+```
+myPosts.fetchAll().then(
     (posts) => { console.log(posts); }
-   ).catch(
+).catch(
     err => {}
-   );
+);
 ```
 
 Fetch a post by slug and your comments
 
-```myPosts.fetchPostBySlug("blog-pessoal-a-partir-das-apis-tabnews").then((e) => {
-    console.log(e, "index.js");
-    });
+```
+myPosts.fetchPostBySlug("blog-pessoal-a-partir-das-apis-tabnews").then((e) => {
+   console.log(e, "index.js");
+});
 ```
